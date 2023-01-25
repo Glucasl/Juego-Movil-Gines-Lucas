@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
     
 
@@ -110,9 +111,10 @@ public class StatsManager : MonoBehaviour
 
             if(_currentStamina <= 0)
             {
-                gameOver.gameObject.SetActive(true);
+                //gameOver.gameObject.SetActive(true);
+                SceneManager.LoadScene(6);
             }
-            //A�adir aqui que pasa cuando llegas a 0 de Stamina, es decir, GameOver
+            
         }
 
 
