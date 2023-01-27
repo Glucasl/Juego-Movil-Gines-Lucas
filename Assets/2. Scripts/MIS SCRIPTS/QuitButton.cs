@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class QuitButton : MonoBehaviour
 {
-    // Asigna el botón en el inspector de Unity
+    // Este Script nos permite salir del juego pulsando un boton en el canvas
     public Button quitButton;
 
     private void Start()

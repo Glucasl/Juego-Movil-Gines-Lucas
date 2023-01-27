@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Script para el movmiento del personaje en el juego de Lluvia de comida
 public class Drive : MonoBehaviour
 {
     public float speed = 10.0f;

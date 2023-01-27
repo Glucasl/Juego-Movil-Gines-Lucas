@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Usamos el patron Singleton para guardar variables entre escenas
 public class SingletonManager : MonoBehaviour
 {
  public static SingletonManager singleton;
 
+    //Si el singleton es null le decimos que use el que tenemos y en caso de que no destruimos el objeto
     private void Awake()
     {
         if (singleton == null)
@@ -19,7 +22,7 @@ public class SingletonManager : MonoBehaviour
         }
     }
 
-    
+    //Las varaibles que queremos guardadas en el singleton con un set y get
     private int _contador;
     public int Contador
     {

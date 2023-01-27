@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+//En este script creamos un controlador de ciclo de dia y noche.
 public class DayNightController : MonoBehaviour {
 
     public Light sun;
-
-
     public float secondsInFullDay = 120f;
-
     public GameObject luces;
 
 
@@ -17,12 +16,14 @@ public class DayNightController : MonoBehaviour {
     [HideInInspector]
     public float timeMultiplier = 1f;
 
-
     float sunInitialIntensity;
+
+    //Iniciamos la intesidad del sol
     void Start() {
         sunInitialIntensity = sun.intensity;
     }
 
+    //actualizamos la posicion del sol y el paso del dia
     void Update() {
 
         UpdateSun();
@@ -36,6 +37,7 @@ public class DayNightController : MonoBehaviour {
         }
     }
 
+    //Este metodo actualiza la intensidad y posicion del sol dependiendo del tiempo del dia que haya pasado, para ello variamos la intesidad en 3 fases, dia, tarde y noche.
     void UpdateSun() {
 
         sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f) - 90, 170, 0);

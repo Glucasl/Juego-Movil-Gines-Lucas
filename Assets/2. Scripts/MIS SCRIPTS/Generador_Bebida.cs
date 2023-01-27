@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Con estre script creamos un generador de bebida para instaciar las bebidas que aprecen en la pantalla principal del juego.
 public class Generador_Bebida : MonoBehaviour
 {
     public GameObject[] Bebidas;
@@ -10,6 +11,7 @@ public class Generador_Bebida : MonoBehaviour
     public float tiempomMin, tiempoMax, SedSumada;
     [SerializeField] private StatsManager _statsManagerD;
 
+    // En el start activamos el metodo generar que es el cual genera toda la logica de la instaciación.
     [System.Obsolete]
     private void Start()
     {
@@ -18,6 +20,7 @@ public class Generador_Bebida : MonoBehaviour
         Generar();
     }
 
+    //Si el jugador entra contacto con una bebida se aplocara el metodo comer.
     [System.Obsolete]
     void OnTriggerEnter(Collider col)
     {
@@ -25,6 +28,7 @@ public class Generador_Bebida : MonoBehaviour
         Comer();
     }
 
+    //El metodo comer destruye el objeto cuando el player entra en contacto con el y aumenta las estadisticas de sed del jugador
     [System.Obsolete]
     public void Comer()
     {
@@ -33,6 +37,8 @@ public class Generador_Bebida : MonoBehaviour
         DestroyObject(BebidaMostrada);
         Invoke("Generar", Random.Range(tiempomMin, tiempoMax));
     }
+
+    //Este metodo contiene la logica del spawn alatorio de cada bebida por la pantalla principal.
     void Generar()
     {
         if (!Mostrando)

@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
     
-
+//El script general que lleva la mayoria de mecanicas que posee el player del juego en la escena principal
 public class StatsManager : MonoBehaviour
 {
     // Singleton
@@ -79,7 +79,7 @@ public class StatsManager : MonoBehaviour
 
     public static UnityAction OnPlayerDied;
 
-
+    // Incializamos las variables de comida, vida y sed
    private void Start()
     {
        
@@ -90,17 +90,20 @@ public class StatsManager : MonoBehaviour
         
     }
 
+    //vamos actualizando las variables a la vez que tambien la interfaz del juego
     private void Update()
     {
-        
+        //Actualizamos los textos
         _monedas.text = "Dinero = " + SingletonManager.singleton.Contador;
         scoreText.text = "Score = " + SingletonManager.singleton.Score;
         _textcomida.text = "Comida = " + comida;
         _textbebida.text = "Bebida = " + bebida;
 
+        // Vamos disminuyendo la comida y bebida con Time.deltatime
         _currentHunger -= _hungerDeplationRate * Time.deltaTime;
         _currentThirst -= _ThirstDeplationRate * Time.deltaTime;
 
+        // Comprobnamos que si el hambre y la sed son 0 la vida vaya decayendo
         if(_currentHunger <= 0 || _currentThirst <= 0)
         {
             OnPlayerDied?.Invoke();
@@ -109,6 +112,7 @@ public class StatsManager : MonoBehaviour
 
             _currentStamina -= _staminaDeplationRate * Time.deltaTime;
 
+            // Si la vida es 0 el juego se acaba
             if(_currentStamina <= 0)
             {
                 //gameOver.gameObject.SetActive(true);
@@ -121,6 +125,7 @@ public class StatsManager : MonoBehaviour
 
     }
 
+    // Metodo para rellenar el hambre y la sed cuando comemos o bebemos
     public void ReplenishHungerThirst(float hungerAmount, float thirstAmount)
     {
         _currentHunger += hungerAmount;

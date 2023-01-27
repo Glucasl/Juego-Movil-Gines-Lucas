@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class RestartButton : MonoBehaviour
 {
-    // Asigna el botón en el inspector de Unity
+    // Este Boton nos permite reinciar el juego reinciando el dinero del juego.
     public Button restartButton;
 
     private void Start()

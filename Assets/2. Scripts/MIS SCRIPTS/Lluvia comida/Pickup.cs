@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//Script del minijuego de lluvia de comida que contiene las funcionalidades basicas del mismo
 public class Pickup : MonoBehaviour
 {
         public int contadorComida;
@@ -15,6 +16,7 @@ public class Pickup : MonoBehaviour
         bebidaTexto.text = "Bebida: " + GameManager.contadorBebida;
     }
 
+    // Si el jugador entra en contacto con la comida o la bebida destruye el objeto y guarda la cantidad de cada uno en el singleton.
     private void OnCollisionEnter(Collision other) {
         
         if (other.gameObject.tag == "Comida"){

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
+//Este script tiene el cronometro de los minijuegos.
 public class CuentaAtras : MonoBehaviour
 {
     public float tiempi;
@@ -24,6 +25,7 @@ public class CuentaAtras : MonoBehaviour
     void Update()
     {
         
+        //Aqui actualizzamos el cronometro y comprobamos que si valor es 0 el minijuego termina y se carga la escena principal
         tiempi = tiempi - Time.deltaTime;
         ActualizarCronometro();
         if (tiempi <= 0)

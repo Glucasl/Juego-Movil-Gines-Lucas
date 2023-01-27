@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Este script nos permite activar o desactivar el canvas.
 public class OpenCanvasOnClick : MonoBehaviour
 {
     public Canvas canvas;

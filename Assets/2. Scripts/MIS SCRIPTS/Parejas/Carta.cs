@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Script con todas las funcionalidades  de la carta 
 public class Carta : MonoBehaviour
 {
     [Header("Datos")]

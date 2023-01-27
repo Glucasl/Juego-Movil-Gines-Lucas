@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Script que permite instaciar objetos desde una altura y hacerlos caer con una fuerza determinada.
 public class DownObjects : MonoBehaviour
 {
     public List<GameObject> objectsToThrow;
@@ -14,8 +16,12 @@ public class DownObjects : MonoBehaviour
     public int poolSize = 10;
 
     private float timer;
+
+    //Hacemos una pool de los obejtos que queremos lanzar.
     [SerializeField] private Queue<GameObject> objectPool;
 
+
+    //Hacemos que con el patron de pool object se inicialize la pool con los objectos y se les aplique una posición.
     private void Start()
     {
         timer = Random.Range(throwIntervalMin, throwIntervalMax);
@@ -29,6 +35,7 @@ public class DownObjects : MonoBehaviour
         }
     }
 
+    //vamos lanzando los objectos de la pool entre un rango de tiempo que ha sido terminado previamente.
     private void Update()
     {
         timer -= Time.deltaTime;
@@ -39,6 +46,7 @@ public class DownObjects : MonoBehaviour
         }
     }
 
+    // este metodo contiene toda la logica de las posiciones de spawn y fuerza que tendran los objectos
     private void ThrowFromRange()
     {
         if(objectPool.Count > 0) {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Script con todas las funcionalidades del juego de encontrar parejas
 public class CrearCartas : MonoBehaviour
 {
 
@@ -32,6 +34,7 @@ public class CrearCartas : MonoBehaviour
         //interfazParejas.ActivarCrono();
         
     }
+    //Metodo en el cual se crean las cartas y se les asigna una posicion
     public void Crear()
     {
         int cont = 0;
@@ -59,6 +62,7 @@ public class CrearCartas : MonoBehaviour
         Barajar();
     }
 
+    //metodo que asigna la textura de cada una de las cartas del juego
     void AsignarTexturas()
     {
         int[] arrayTemp = new int[texturas.Length];
@@ -89,6 +93,8 @@ public class CrearCartas : MonoBehaviour
             cartas[i].GetComponent<Carta>().idCarta = i / 2;
         }
     }
+
+    //Metodo con el cual se mezclan las cartas 
     void Barajar()
     {
         int aleatorio;
@@ -104,6 +110,7 @@ public class CrearCartas : MonoBehaviour
         }
     }
 
+    //Este metodo contiene la funcionalidad al hacer click sobre una de las cartas para revelar su cara
     public void HacerClick(Carta _carta)
     {
         if (cartaMostrada == null)
@@ -134,6 +141,7 @@ public class CrearCartas : MonoBehaviour
         }  
     }
 
+    //El metodo contiene la logica de compara las cartas para ver si se ha encontrado una pareja
     public bool CompararCartas(GameObject carta1, GameObject carta2)
     {
         bool resultado;
@@ -149,6 +157,7 @@ public class CrearCartas : MonoBehaviour
         return resultado;
     }
 
+    //En este metodo actualizamos la UI poniendo los intentos que son los clicks realizados
     public void ActualizarUI()
     {
         textContadorIntentos.text = "Intentos: " + contadorClicks;

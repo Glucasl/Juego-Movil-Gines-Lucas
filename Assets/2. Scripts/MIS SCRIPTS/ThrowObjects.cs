@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script que nosd permite lanzar objetos aplicandoles una fuerza
 public class ThrowObjects : MonoBehaviour
 {
     public List<GameObject> objectsToThrow;
@@ -19,6 +20,8 @@ public class ThrowObjects : MonoBehaviour
     private Transform[] spawnPoints;
     [SerializeField] private Queue<GameObject> objectPool;
 
+
+    // En el start tenemos un bucle el cual coje los obejctos de la pool y los pone en cola para ser usados
     private void Start()
     {
         timer = Random.Range(throwIntervalMin, throwIntervalMax);
@@ -33,6 +36,7 @@ public class ThrowObjects : MonoBehaviour
         }
     }
 
+    // En el ipdate vamos lanzando los obejtos de la pool en el tiempo que se le haya dicho aplicandoles una fuerza
     private void Update()
     {
         timer -= Time.deltaTime;
@@ -44,6 +48,7 @@ public class ThrowObjects : MonoBehaviour
         }
     }
 
+    //Metodo que contiene la fuerza de lanzamiento  y posición de los lazamientos
     private void ThrowFromPoint(Transform spawnPoint)
     {
         GameObject obj = objectPool.Dequeue();

@@ -4,6 +4,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//El script que tiene las funcionalides del UI del stats manager
 public class StatsUIManager : MonoBehaviour
 {
     [SerializeField] public StatsManager _statsManager;

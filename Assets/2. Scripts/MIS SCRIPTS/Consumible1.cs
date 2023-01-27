@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//Script  para actualizar el contador de comida.
 public class Consumible1 : MonoBehaviour
 {
     public TMP_Text contadorComida;

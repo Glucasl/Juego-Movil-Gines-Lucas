@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 
+// Script que contiene la interfaz del juego de encontrar parejas
 public class InterfazParejas : MonoBehaviour
 {
     public GameObject menu;
