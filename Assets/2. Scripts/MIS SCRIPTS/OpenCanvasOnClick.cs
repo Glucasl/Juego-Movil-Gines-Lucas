@@ -6,14 +6,19 @@ using UnityEngine.UI;
 public class OpenCanvasOnClick : MonoBehaviour
 {
     public Canvas canvas;
+    public Canvas interfacex;
 
     private void Start()
     {
         canvas.gameObject.SetActive(false);
     }
 
-    private void OnMouseDown()
+    private void OnTriggerEnter(Collider other)
     {
-        canvas.gameObject.SetActive(true);
+        if (other.tag == "Player")
+        {
+            canvas.gameObject.SetActive(true);
+            interfacex.gameObject.SetActive(false);
+        }
     }
 }

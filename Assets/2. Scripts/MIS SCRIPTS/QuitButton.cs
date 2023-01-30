@@ -1,21 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class QuitButton : MonoBehaviour
 {
-    // Este Script nos permite salir del juego pulsando un boton en el canvas
-    public Button quitButton;
 
-    private void Start()
+    [SerializeField] private GameObject Transicion;
+    [SerializeField] private GameObject BlackScreen;
+    [SerializeField] private float wait = 2;
+
+    public void SalirInicio()
     {
-        // Agrega un escucha de evento al botón
-        quitButton.onClick.AddListener(QuitGame);
+        StartCoroutine(Inicio());
     }
 
-    private void QuitGame()
+    public IEnumerator Inicio()
     {
-        // Salir del juego
-        Application.Quit();
-        Debug.Log("Saliendo...");
+        Transicion.SetActive(true);
+        BlackScreen.SetActive(true);
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(wait);
+        Time.timeScale = 1f;
+        SingletonManager.singleton.Contador = 0;
+        SceneManager.LoadScene(0);
     }
 }

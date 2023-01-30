@@ -42,7 +42,7 @@ public class CrearCartas : MonoBehaviour
         {
             for(int x = 0; x < ancho; x++)
             {
-                float factor = 9.0f/ancho;
+                float factor = 8.0f/ancho;
                 Vector3 posicionTemp = new Vector3(x * factor, 0, i * factor);
 
                 GameObject cartaTemp = Instantiate(cartaPrefab,posicionTemp, Quaternion.Euler(new Vector3(0,180,0)));

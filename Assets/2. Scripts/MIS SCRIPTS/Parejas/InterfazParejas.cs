@@ -13,6 +13,10 @@ public class InterfazParejas : MonoBehaviour
     public bool menuMostrado;
     public Text txtmenuGandor;
 
+    [SerializeField] private GameObject Transicion;
+    [SerializeField] private GameObject BlackScreen;
+    [SerializeField] private float wait = 2;
+
     public void MostrarMenu()
     {
         menu.SetActive(true);
@@ -33,8 +37,16 @@ public class InterfazParejas : MonoBehaviour
     
     public void VolverAlPrincpal()
     {
-        SceneManager.LoadScene("Principal");
+        StartCoroutine(Principal());
     }
 
-
+    public IEnumerator Principal()
+    {
+        Transicion.SetActive(true);
+        BlackScreen.SetActive(true);
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(wait);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
+    }
 }

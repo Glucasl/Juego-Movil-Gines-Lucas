@@ -13,6 +13,10 @@ public class CuentaAtras : MonoBehaviour
     public Text crono;
     TimeSpan tiempo;
 
+    [SerializeField] private GameObject Transicion;
+    [SerializeField] private GameObject BlackScreen;
+    [SerializeField] private float wait = 2;
+
     private void Start()
     {
         while (tiempi >= 60)
@@ -37,7 +41,7 @@ public class CuentaAtras : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene("Principal");
+                StartCoroutine(Principal());
             }
 
             
@@ -51,5 +55,20 @@ public class CuentaAtras : MonoBehaviour
         
         crono.text = tiempiMin.ToString() + " : " + a.ToString();
        
+    }
+
+    public void IrPrincipal()
+    {
+        StartCoroutine(Principal());
+    }
+
+    public IEnumerator Principal()
+    {
+        Transicion.SetActive(true);
+        BlackScreen.SetActive(true);
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(wait);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
     }
 }

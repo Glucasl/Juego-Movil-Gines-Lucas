@@ -73,21 +73,14 @@ public class StatsManager : MonoBehaviour
     private float _currentStaminaDelayCounter;
     public float StaminaPercent => _currentStamina / _maxStamina;
 
-    
-
-    public Image gameOver;
-
     public static UnityAction OnPlayerDied;
 
     // Incializamos las variables de comida, vida y sed
    private void Start()
     {
-       
         _currentHunger = _maxHunger;
         _currentStamina = _maxStamina;
-        _currentThirst = _maxThirst;
-
-        
+        _currentThirst = _maxThirst;  
     }
 
     //vamos actualizando las variables a la vez que tambien la interfaz del juego
@@ -96,8 +89,8 @@ public class StatsManager : MonoBehaviour
         //Actualizamos los textos
         _monedas.text = "Dinero = " + SingletonManager.singleton.Contador;
         scoreText.text = "Score = " + SingletonManager.singleton.Score;
-        _textcomida.text = "Comida = " + comida;
-        _textbebida.text = "Bebida = " + bebida;
+        _textcomida.text = "hambre" + comida;
+        _textbebida.text = "sed" + bebida;
 
         // Vamos disminuyendo la comida y bebida con Time.deltatime
         _currentHunger -= _hungerDeplationRate * Time.deltaTime;
@@ -118,11 +111,7 @@ public class StatsManager : MonoBehaviour
                 //gameOver.gameObject.SetActive(true);
                 SceneManager.LoadScene(6);
             }
-            
         }
-
-
-
     }
 
     // Metodo para rellenar el hambre y la sed cuando comemos o bebemos
