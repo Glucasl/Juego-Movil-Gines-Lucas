@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using System;
 
 //Este script tiene el cronometro de los minijuegos.
-public class CuentaAtras : MonoBehaviour
+public class CuentaAtrasPAREJAS : MonoBehaviour
 {
     public float tiempi;
     public float tiempiMin;
@@ -69,6 +69,6 @@ public class CuentaAtras : MonoBehaviour
         Time.timeScale = 1f;
         yield return new WaitForSeconds(wait);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(9);
     }
 }
