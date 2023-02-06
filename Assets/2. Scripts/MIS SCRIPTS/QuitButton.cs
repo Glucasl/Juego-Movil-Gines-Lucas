@@ -5,7 +5,6 @@ using System.Collections;
 
 public class QuitButton : MonoBehaviour
 {
-
     [SerializeField] private GameObject Transicion;
     [SerializeField] private GameObject BlackScreen;
     [SerializeField] private float wait = 2;

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 //En este script creamos un controlador de ciclo de dia y noche.
 public class DayNightController : MonoBehaviour {
@@ -17,6 +20,11 @@ public class DayNightController : MonoBehaviour {
     public float timeMultiplier = 1f;
 
     float sunInitialIntensity;
+
+
+    [SerializeField] private GameObject Transicion;
+    [SerializeField] private GameObject BlackScreen;
+    [SerializeField] private float wait = 2;
 
     //Iniciamos la intesidad del sol
     void Start() {
@@ -60,8 +68,26 @@ public class DayNightController : MonoBehaviour {
             intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - 0.73f) * (1 / 0.02f)));
 
             luces.SetActive(true);
+        } 
+        
+        else if(currentTimeOfDay == 0.1f) 
+        {
+            StartCoroutine(Inicio());
         }
 
         sun.intensity = sunInitialIntensity * intensityMultiplier;
+
+
+    }
+
+    public IEnumerator Inicio()
+    {
+        Transicion.SetActive(true);
+        BlackScreen.SetActive(true);
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(wait);
+        Time.timeScale = 1f;
+        //SingletonManager.singleton.Contador = 0;
+        SceneManager.LoadScene(0);
     }
 }
