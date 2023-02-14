@@ -42,6 +42,7 @@ public class DayNightController : MonoBehaviour {
 
         if (currentTimeOfDay >= 1) {
             currentTimeOfDay = 0;
+            StartCoroutine(Inicio());
         }
     }
 
@@ -68,11 +69,15 @@ public class DayNightController : MonoBehaviour {
             intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - 0.73f) * (1 / 0.02f)));
 
             luces.SetActive(true);
+            
+             
         } 
         
         else if(currentTimeOfDay == 0.1f) 
         {
-            StartCoroutine(Inicio());
+            
+             
+            
         }
 
         sun.intensity = sunInitialIntensity * intensityMultiplier;

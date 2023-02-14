@@ -112,6 +112,23 @@ public class StatsManager : MonoBehaviour
                 SceneManager.LoadScene(6);
             }
         }
+        else // Si la comida y la bebida no son cero, la stamina se recarga
+    {
+        _currentStaminaDelayCounter += Time.deltaTime;
+
+        if (_currentStaminaDelayCounter >= _staminaRechargeDelay)
+        {
+            _currentStaminaDelayCounter = 0f;
+            _currentStamina += _staminaRechargeRate * Time.deltaTime;
+
+            if (_currentStamina > _maxStamina) _currentStamina = _maxStamina;
+
+            Debug.Log(_currentStamina);
+        }
+    }
+
+        
+
     }
 
     // Metodo para rellenar el hambre y la sed cuando comemos o bebemos

@@ -8,7 +8,7 @@ public class Generador_Bebida : MonoBehaviour
     public GameObject[] Bebidas;
     public GameObject BebidaMostrada;
     public bool Mostrando;
-    public float tiempomMin, tiempoMax, SedSumada;
+    public float tiempomMin, tiempoMax;
     [SerializeField] private StatsManager _statsManagerD;
 
     // En el start activamos el metodo generar que es el cual genera toda la logica de la instaciación.
@@ -32,7 +32,7 @@ public class Generador_Bebida : MonoBehaviour
     [System.Obsolete]
     public void Comer()
     {
-        _statsManagerD._currentThirst = 100;
+        StatsManager.singleton.ReplenishHungerThirst(5, 20);
         Mostrando = false;
         DestroyObject(BebidaMostrada);
         Invoke("Generar", Random.Range(tiempomMin, tiempoMax));
