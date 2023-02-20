@@ -9,20 +9,22 @@ public class Dialogador : MonoBehaviour
 
     public void OnTriggerStay(Collider other)
     {
+        if (other.CompareTag("Player"))
+        {
+
+            StartCoroutine(ControlDialogo.singleton.Decir(estados[estadoActual].frases));
+            //if (SimpleInput.GetKeyDown(ControlDialogo.singleton.iniciarDialogo))
+            //{
+            //    StartCoroutine(ControlDialogo.singleton.Decir(estados[estadoActual].frases));
+            //}
+        }
+
         //if (other.CompareTag("Player"))
         //{
-        //    if (Input.GetKeyDown(ControlDialogo.singleton.configuracion.teclaInicioDialogo) || Input.GetKeyDown(ControlDialogo.singleton.configuracion.teclaInicioDialogo2))
+        //    if (SimpleInput.GetButtonDown("Fire1"))
         //    {
         //        StartCoroutine(ControlDialogo.singleton.Decir(estados[estadoActual].frases));
         //    }
         //}
-
-        if (other.CompareTag("Player"))
-        {
-            if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire1"))
-            {
-                StartCoroutine(ControlDialogo.singleton.Decir(estados[estadoActual].frases));
-            }
-        }
     }
 }

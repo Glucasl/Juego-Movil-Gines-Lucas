@@ -14,4 +14,8 @@ public class ConfigDialogo : ScriptableObject
     public KeyCode teclaSiguienteFrase;
     public KeyCode teclaInicioDialogo = KeyCode.B;
     public KeyCode teclaInicioDialogo2 = KeyCode.Joystick1Button3;
+
+    [Header("Configuracion de teclado")]
+    //public KeyCode continuarDialogo; FIRE 1
+    public KeyCode iniciarDialogo = KeyCode.Mouse1;
 }

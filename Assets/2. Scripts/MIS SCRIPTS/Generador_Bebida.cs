@@ -5,6 +5,7 @@ using UnityEngine;
 // Con estre script creamos un generador de bebida para instaciar las bebidas que aprecen en la pantalla principal del juego.
 public class Generador_Bebida : MonoBehaviour
 {
+    public GameObject esto;
     public GameObject[] Bebidas;
     public GameObject BebidaMostrada;
     public bool Mostrando;
@@ -35,7 +36,8 @@ public class Generador_Bebida : MonoBehaviour
         StatsManager.singleton.ReplenishHungerThirst(5, 20);
         Mostrando = false;
         DestroyObject(BebidaMostrada);
-        Invoke("Generar", Random.Range(tiempomMin, tiempoMax));
+        //Invoke("Generar", Random.Range(tiempomMin, tiempoMax));
+        StartCoroutine(Muro());
     }
 
     //Este metodo contiene la logica del spawn alatorio de cada bebida por la pantalla principal.
@@ -48,5 +50,10 @@ public class Generador_Bebida : MonoBehaviour
             BebidaMostrada.transform.parent = transform;
             BebidaMostrada.transform.localScale *= 2;
         }
+    }
+    public IEnumerator Muro()
+    {
+        yield return new WaitForSeconds(10f);
+        esto.SetActive(true);
     }
 }

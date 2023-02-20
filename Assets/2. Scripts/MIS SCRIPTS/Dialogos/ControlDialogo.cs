@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,21 +6,20 @@ using UnityEngine.UI;
 
 public class ControlDialogo : MonoBehaviour
 {
-    // Singleton
+
     public static ControlDialogo singleton;
     public static bool enDialogo = false;
 
     public GameObject dialogo;
     public Text txtDialogo;
     public Image imCara;
-    [Header("Config de teclado")]
+    //public Frase[] dialogoEnsayo;
+
     public ConfigDialogo configuracion;
-    [Header("Ensayo")]
-    public Frase[] dialogoEnsayo;
 
     private void Awake()
     {
-        if(singleton == null)
+        if (singleton == null)
         {
             singleton = this;
         }
@@ -28,50 +28,43 @@ public class ControlDialogo : MonoBehaviour
             DestroyImmediate(gameObject);
         }
     }
-    
-    void Start()
+    private void Start()
     {
         dialogo.SetActive(false);
     }
 
-    public IEnumerator Decir(Frase[] _dialogo)
+    public IEnumerator Decir(Frase[]_dialogo)
     {
         dialogo.SetActive(true);
         enDialogo = true;
-        for (int i=0; i< _dialogo.Length; i++)
+        for (int i = 0; i < _dialogo.Length; i++)
         {
             txtDialogo.text = "";
+
             imCara.sprite = configuracion.personajes[_dialogo[i].personaje].GetCara(0);
-            for(int j = 0; j < _dialogo[i].texto.Length + 1; j++)
+
+            for (int j = 0; j < _dialogo[i].texto.Length + 1; j++)
             {
                 yield return new WaitForSeconds(configuracion.tiempoLetra);
-                if (Input.GetKey(configuracion.teclaSkip) || Input.GetKey(configuracion.teclaSkip2))
+                if (SimpleInput.GetButtonDown("Fire1"))
                 {
                     j = _dialogo[i].texto.Length;
                 }
-                //if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire1"))
-                //{
-                //    j = _dialogo[i].texto.Length;
-                //}
-                txtDialogo.text = _dialogo[i].texto.Substring(0,j);
+
+                txtDialogo.text = _dialogo[i].texto.Substring(0, j);
+
                 if (j < _dialogo[i].texto.Length)
                 {
                     imCara.sprite = configuracion.personajes[_dialogo[i].personaje].GetCara(ArreglarLetra(_dialogo[i].texto[j].ToString()));
                 }
             }
+
             txtDialogo.text = _dialogo[i].texto;
             yield return new WaitForSeconds(0.5f);
-            yield return new WaitUntil(() => Input.GetKeyUp(configuracion.teclaSiguienteFrase));
-            //yield return new WaitUntil(() => Input.GetButton("Fire1"));
+            yield return new WaitUntil(() => SimpleInput.GetButtonUp("Fire1"));
         }
         dialogo.SetActive(false);
         enDialogo = false;
-    }
-
-    [ContextMenu("Activar prueba")]
-    public void Prueba()
-    {
-       StartCoroutine(Decir(dialogoEnsayo));
     }
 
     public string ArreglarLetra(string letra)
@@ -82,9 +75,9 @@ public class ControlDialogo : MonoBehaviour
         resultado = resultado.Replace("Í", "I");
         resultado = resultado.Replace("Ó", "O");
         resultado = resultado.Replace("Ú", "U");
+        resultado = resultado.Replace("Ü", "U");
         return resultado;
     }
-
 }
 
 [System.Serializable]
@@ -111,13 +104,12 @@ public class CaraDialogo
 public class PersonajeDialogo
 {
     public CaraDialogo[] caras;
-
     public Sprite GetCara(string l)
     {
         int indice = 0;
-        for(int i =0; i< caras.Length; i++)
+        for (int i = 0; i < caras.Length; i++)
         {
-            if(caras[i].letra == l)
+            if (caras[i].letra == l)
             {
                 indice = i;
                 break;
@@ -128,7 +120,7 @@ public class PersonajeDialogo
 
     public Sprite GetCara(int i)
     {
-        i = Mathf.Clamp(i, 0, caras.Length-1);
+        i = Math.Clamp(i,0,caras.Length - 1);
         return (caras[i].cara);
     }
 }

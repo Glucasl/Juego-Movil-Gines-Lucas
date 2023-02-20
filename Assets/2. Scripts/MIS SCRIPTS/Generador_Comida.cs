@@ -6,6 +6,7 @@ using UnityEngine;
 //Este script es el generador de comida random por la pantalla principal del videojuego.
 public class Generador_Comida : MonoBehaviour
 {
+    public GameObject esto;
     public GameObject[] Comidas;
     public GameObject ComidaMostrada;
     public bool Mostrando;
@@ -25,7 +26,6 @@ public class Generador_Comida : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         Comer();
-
     }
 
     //Con este metodo destrruimos el obejcto que el jugador toque y aumentamos sus estadisticas de hambre.
@@ -36,8 +36,8 @@ public class Generador_Comida : MonoBehaviour
         StatsManager.singleton.ReplenishHungerThirst(20, 5);
         Mostrando = false;
         DestroyObject(ComidaMostrada);
-        Invoke("Generar", Random.Range(tiempomMin, tiempoMax));
-
+        //Invoke("Generar", Random.Range(tiempomMin, tiempoMax));
+        StartCoroutine(Muro());
 
     }
 
@@ -52,5 +52,9 @@ public class Generador_Comida : MonoBehaviour
             ComidaMostrada.transform.localScale *=2;
         }
     }
-    
+    public IEnumerator Muro()
+    {
+        yield return new WaitForSeconds(10f);
+        esto.SetActive(true);
+    }
 }
