@@ -18,10 +18,6 @@ public class PoinandClic : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		minav.destination = target.position;
-        if (ControlDialogo.enDialogo)
-        {
-			return;
-        }
 
 
 		if (Input.GetButtonDown ("Fire1")) {
