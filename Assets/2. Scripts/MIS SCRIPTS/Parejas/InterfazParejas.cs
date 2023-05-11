@@ -27,6 +27,7 @@ public class InterfazParejas : MonoBehaviour
     {
         menuganador.SetActive(true);
         menuMostrado = true;
+        SingletonManager.singleton.scoreGlobal = 100;
     }
 
     public void EsconderMenu()

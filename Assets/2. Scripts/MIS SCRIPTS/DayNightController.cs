@@ -44,6 +44,11 @@ public class DayNightController : MonoBehaviour {
             currentTimeOfDay = 0;
             StartCoroutine(Inicio());
         }
+
+         if (Input.GetKeyDown(KeyCode.F))
+        {
+             SceneManager.LoadScene(10);
+        }
     }
 
     //Este metodo actualiza la intensidad y posicion del sol dependiendo del tiempo del dia que haya pasado, para ello variamos la intesidad en 3 fases, dia, tarde y noche.
@@ -93,6 +98,13 @@ public class DayNightController : MonoBehaviour {
         yield return new WaitForSeconds(wait);
         Time.timeScale = 1f;
         //SingletonManager.singleton.Contador = 0;
-        SceneManager.LoadScene(0);
+        if (SingletonManager.singleton.scoreGlobal >= 120){
+
+            SceneManager.LoadScene(10);
+        }else {
+
+            SceneManager.LoadScene(6);
+        }
+        
     }
 }

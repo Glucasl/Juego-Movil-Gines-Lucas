@@ -11,4 +11,6 @@ public class GameManager : MonoBehaviour
         // Asegurar que solo exista una instancia de GameManager en la escena
         DontDestroyOnLoad(this.gameObject);
     }
+
 }
+

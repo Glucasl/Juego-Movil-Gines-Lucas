@@ -88,7 +88,7 @@ public class StatsManager : MonoBehaviour
     {
         //Actualizamos los textos
         _monedas.text = "Dinero = " + SingletonManager.singleton.Contador;
-        scoreText.text = "Score = " + SingletonManager.singleton.Score;
+        scoreText.text = "Score = " + SingletonManager.singleton.scoreGlobal;
         _textcomida.text = "hambre" + comida;
         _textbebida.text = "sed" + bebida;
 

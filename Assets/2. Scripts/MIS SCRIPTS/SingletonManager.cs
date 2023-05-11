@@ -32,4 +32,14 @@ public class SingletonManager : MonoBehaviour
 
     public int Score { get; set; }
 
+    private int _ScoreGlobal;
+
+    public int scoreGlobal
+    {
+        get { return _ScoreGlobal; }
+        set { _ScoreGlobal = value; }
+    }
+
+    
+
 }

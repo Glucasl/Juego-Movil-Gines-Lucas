@@ -22,12 +22,21 @@ public class Pickup : MonoBehaviour
         if (other.gameObject.tag == "Comida"){
 
             GameManager.contadorComida = GameManager.contadorComida +1;
+            if(GameManager.contadorComida >= 1){
+
+                SingletonManager.singleton.scoreGlobal = SingletonManager.singleton.scoreGlobal + 10;
+            }
             Destroy(other.gameObject);
+
             
         } 
         else if (other.gameObject.tag == "Bebida"){
 
             GameManager.contadorBebida = GameManager.contadorBebida +1;
+            if(GameManager.contadorBebida >= 1){
+
+                SingletonManager.singleton.scoreGlobal = SingletonManager.singleton.scoreGlobal + 10;
+            }
             Destroy(other.gameObject);
         }
     }

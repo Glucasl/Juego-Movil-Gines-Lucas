@@ -26,5 +26,6 @@ public class Generador_Comida1_LLuvia : MonoBehaviour
             ComidaMostrada.transform.localScale *=2;
         }
     }
-    
+
+
 }
