@@ -10,16 +10,10 @@ public class NoteObject : MonoBehaviour
 
     public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(keyToPress))
+        if (SimpleInput.GetKeyDown(keyToPress))
         {
             if (canBePressed)
             {

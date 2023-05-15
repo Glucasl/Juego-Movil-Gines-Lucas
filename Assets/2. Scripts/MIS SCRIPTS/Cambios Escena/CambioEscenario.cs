@@ -29,6 +29,6 @@ public class CambioEscenario : MonoBehaviour
         Time.timeScale = 1f;
         yield return new WaitForSeconds(wait);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 }

@@ -1,6 +1,7 @@
 ﻿//#define GET_AXIS_USE_MOVE_TOWARDS
 
 using SimpleInputNamespace;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -25,7 +26,7 @@ public class SimpleInput : MonoBehaviour
 		}
 	}
 
-	private class Button
+    private class Button
 	{
 		public readonly string button;
 		public readonly List<ButtonInput> inputs;
