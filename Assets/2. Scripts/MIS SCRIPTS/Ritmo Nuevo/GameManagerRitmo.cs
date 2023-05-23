@@ -98,6 +98,8 @@ public class GameManagerRitmo : MonoBehaviour
                 rankText.text = rankVal;
 
                 finalScoreText.text = currentScore.ToString();
+
+                SingletonManager.singleton.scoreGlobal = SingletonManager.singleton.scoreGlobal + currentScore;
             }
         }
     }
