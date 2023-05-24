@@ -11,7 +11,7 @@ public class DayNightController : MonoBehaviour {
     public Light sun;
     public float secondsInFullDay = 120f;
     public GameObject luces;
-
+    public int pasarNivel;
 
     [Range(0,1)]
     public float currentTimeOfDay = 0;
@@ -98,7 +98,7 @@ public class DayNightController : MonoBehaviour {
         yield return new WaitForSeconds(wait);
         Time.timeScale = 1f;
         //SingletonManager.singleton.Contador = 0;
-        if (SingletonManager.singleton.scoreGlobal >= 120){
+        if (SingletonManager.singleton.scoreGlobal >= pasarNivel){
 
             SceneManager.LoadScene(10);
         }else {

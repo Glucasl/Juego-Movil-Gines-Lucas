@@ -39,6 +39,14 @@ public class Pickup : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.tag == "Chatarra")
+        {
+
+            GameManager.contadorBebida = GameManager.contadorBebida - 1;
+            GameManager.contadorComida = GameManager.contadorComida - 1;
+            
+            Destroy(other.gameObject);
+        }
     }
 }
 

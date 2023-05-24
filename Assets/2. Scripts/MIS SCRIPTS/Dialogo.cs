@@ -14,6 +14,7 @@ public class Dialogo : MonoBehaviour
     private int currentDialogueIndex = 0;
     private float cooldownTimer = 0f;
 
+
     private void Start()
     {
         dialogPanel.SetActive(false);
