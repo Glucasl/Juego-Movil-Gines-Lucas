@@ -40,11 +40,15 @@ public class SingletonManager : MonoBehaviour
         set { _ScoreGlobal = value; }
     }
 
-    public int timeDay
+    private float _timeDay;
+
+    public float timeDay
     {
-        get { return _ScoreGlobal; }
-        set { _ScoreGlobal = value; }
+        get { return _timeDay; }
+        set { _timeDay = value; }
     }
+
+
 
 
 }

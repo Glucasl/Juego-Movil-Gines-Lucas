@@ -12,6 +12,11 @@ public class RestartButton : MonoBehaviour
     [SerializeField] private GameObject BlackScreen;
     [SerializeField] private float wait = 2;
 
+    private void Start() {
+        
+        SingletonManager.singleton.timeDay = 0;
+    }
+
     public void Pcomida()
     {
         StartCoroutine(AD());

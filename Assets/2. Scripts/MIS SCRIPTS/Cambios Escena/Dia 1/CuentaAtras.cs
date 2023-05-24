@@ -17,8 +17,10 @@ public class CuentaAtras : MonoBehaviour
     [SerializeField] private GameObject BlackScreen;
     [SerializeField] private float wait = 2;
 
+    
     private void Start()
     {
+       
         while (tiempi >= 60)
         {
             tiempiMin++;
@@ -70,5 +72,6 @@ public class CuentaAtras : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Time.timeScale = 1f;
         SceneManager.LoadScene(8);
+        
     }
 }

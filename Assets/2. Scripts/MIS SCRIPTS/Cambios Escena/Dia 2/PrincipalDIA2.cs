@@ -8,9 +8,11 @@ public class PrincipalDIA2 : MonoBehaviour
     [SerializeField] private GameObject Transicion;
     [SerializeField] private GameObject BlackScreen;
     [SerializeField] private float wait = 2;
+    public int numeroEscena;
 
     public void Start()
     {
+        SingletonManager.singleton.timeDay = 0;
         Transicion.SetActive(false);
         BlackScreen.SetActive(false);
     }
@@ -32,7 +34,7 @@ public class PrincipalDIA2 : MonoBehaviour
         Transicion.SetActive(true);
         BlackScreen.SetActive(true);
         yield return new WaitForSeconds(wait);
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(numeroEscena);
     }
     public void PInicial()
     {

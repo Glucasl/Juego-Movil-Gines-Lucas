@@ -9,10 +9,18 @@ public class CambioEscenario : MonoBehaviour
     [SerializeField] private GameObject BlackScreen;
     [SerializeField] private float wait = 2;
 
+    private DayNightController dayNightController;
+
+        private void Start() {
+        // Obtiene una referencia al componente DayNightController
+        dayNightController = FindObjectOfType<DayNightController>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
+            SingletonManager.singleton.timeDay =  dayNightController.currentTimeOfDay;
             StartCoroutine(PasarParejas());
         }
     }

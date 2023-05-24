@@ -12,7 +12,8 @@ public class DayNightController : MonoBehaviour {
     public float secondsInFullDay = 120f;
     public GameObject luces;
     public int pasarNivel;
-
+    public int scoreScene;
+    
     [Range(0,1)]
     public float currentTimeOfDay = 0;
 
@@ -26,6 +27,10 @@ public class DayNightController : MonoBehaviour {
     [SerializeField] private GameObject BlackScreen;
     [SerializeField] private float wait = 2;
 
+    void Awake() {
+        
+        currentTimeOfDay = SingletonManager.singleton.timeDay;
+    }
     //Iniciamos la intesidad del sol
     void Start() {
         sunInitialIntensity = sun.intensity;
@@ -100,7 +105,7 @@ public class DayNightController : MonoBehaviour {
         //SingletonManager.singleton.Contador = 0;
         if (SingletonManager.singleton.scoreGlobal >= pasarNivel){
 
-            SceneManager.LoadScene(10);
+            SceneManager.LoadScene(scoreScene);
         }else {
 
             SceneManager.LoadScene(6);
