@@ -15,7 +15,7 @@ public class DayNightController : MonoBehaviour {
     public int scoreScene;
     
     [Range(0,1)]
-    public float currentTimeOfDay = 0;
+    public float currentTimeOfDay = 0.28f;
 
     [HideInInspector]
     public float timeMultiplier = 1f;

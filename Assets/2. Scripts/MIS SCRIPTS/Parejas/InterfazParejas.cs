@@ -12,6 +12,7 @@ public class InterfazParejas : MonoBehaviour
     public GameObject menuganador;
     public bool menuMostrado;
     public Text txtmenuGandor;
+    public int scena;
 
     [SerializeField] private GameObject Transicion;
     [SerializeField] private GameObject BlackScreen;
@@ -48,6 +49,6 @@ public class InterfazParejas : MonoBehaviour
         Time.timeScale = 1f;
         yield return new WaitForSeconds(wait);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(scena);
     }
 }

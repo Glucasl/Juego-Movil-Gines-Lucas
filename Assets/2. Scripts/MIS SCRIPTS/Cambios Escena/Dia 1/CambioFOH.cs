@@ -8,6 +8,7 @@ public class CambioFOH : MonoBehaviour
     [SerializeField] private GameObject Transicion;
     [SerializeField] private GameObject BlackScreen;
     [SerializeField] private float wait = 2;
+    [SerializeField] private int scena;
 
     private DayNightController dayNightController;
 

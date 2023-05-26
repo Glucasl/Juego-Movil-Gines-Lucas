@@ -12,6 +12,7 @@ public class CuentaAtras : MonoBehaviour
     public float tiempiMin;
     public Text crono;
     TimeSpan tiempo;
+    public int Scena;
 
     [SerializeField] private GameObject Transicion;
     [SerializeField] private GameObject BlackScreen;
@@ -71,7 +72,7 @@ public class CuentaAtras : MonoBehaviour
         Time.timeScale = 1f;
         yield return new WaitForSeconds(wait);
         Time.timeScale = 1f;
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(Scena);
         
     }
 }
